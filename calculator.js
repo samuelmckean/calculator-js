@@ -70,7 +70,11 @@ function clearClicked() {
 
 // updates screen value when numbers are pressed
 function numberClicked() {
-  displayValue = screen.innerHTML.toString();
+  if (displayValue === '0') {
+    displayValue = '';
+  } else {
+    displayValue = screen.innerHTML.toString();
+  }
   displayValue += this.innerHTML.toString();
   screen.innerHTML = displayValue;
 }
@@ -100,5 +104,6 @@ function operatorClicked() {
   // get first number, operator, and reset screen to 0 for second number
   lastValue = Number(displayValue);
   lastOperator = this.innerHTML;
-  screen.innerHTML = '0';
+  displayValue = '0';
+  screen.innerHTML = displayValue;
 }
