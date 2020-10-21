@@ -106,6 +106,15 @@ function equalClicked() {
       screen.innerHTML = operate(multiply, lastValue, currentValue);
       break;
     case ('/'):
+      // if dividing by 0 reset everything and display alert
+      if (currentValue === 0) {
+        alert('Dividing by 0 is not allowed');
+        displayValue = '0';
+        lastValue = 0;
+        lastOperator = '=';
+        newValue = true;
+        return;
+      }
       screen.innerHTML = operate(divide, lastValue, currentValue);
   };
   // reinitialize values for next calculation
@@ -137,6 +146,15 @@ function operatorClicked() {
         lastValue = operate(multiply, lastValue, currentValue);
         break;
       case ('/'):
+        // if dividing by 0 reset everything and display alert
+        if (currentValue === 0) {
+          alert('Dividing by 0 is not allowed');
+          displayValue = '0';
+          lastValue = 0;
+          lastOperator = '=';
+          newValue = true;
+          return;
+        }
         lastValue = operate(divide, lastValue, currentValue);
     };
     lastOperator = this.innerHTML;
