@@ -139,6 +139,7 @@ function operatorClicked() {
       case ('/'):
         lastValue = operate(divide, lastValue, currentValue);
     };
+    lastOperator = this.innerHTML;
     displayValue = lastValue.toString();
     screen.innerHTML = displayValue;
     newValue = true;
