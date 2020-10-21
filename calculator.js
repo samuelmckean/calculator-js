@@ -42,6 +42,9 @@ document.getElementById('seven').addEventListener('click', numberClicked);
 document.getElementById('eight').addEventListener('click', numberClicked);
 document.getElementById('nine').addEventListener('click', numberClicked);
 
+// wire up decimal point button
+document.getElementById('decimal').addEventListener('click', decimalClicked);
+
 // adds two values
 function add(a, b) {
   return a + b;
@@ -89,6 +92,16 @@ function numberClicked() {
   displayValue += this.innerHTML.toString();
   screen.innerHTML = displayValue;
   newValue = false;
+}
+
+// called when the decimal point button is clicked
+function decimalClicked() {
+  if (!displayValue.includes('.')) {
+    displayValue = screen.innerHTML.toString();
+    displayValue += this.innerHTML.toString();
+    screen.innerHTML = displayValue;
+    newValue = false;
+  }
 }
 
 // called when the equal button is clicked. takes the stored lastValue and lastOperator
