@@ -1,6 +1,9 @@
 // initialize a flag for the first number entered in the calculator
 let enteringFirstNum = true;
 
+// initial flag for when starting a new number
+let newValue = true;
+
 // define vars for last value and the last operator pressed
 let displayValue = '0';
 let lastValue;
@@ -66,7 +69,10 @@ function operate(operator, a, b) {
 
 // clears all values when the clear button is pressed
 function clearClicked() {
-  screen.innerHTML = 0;
+  screen.innerHTML = '0';
+  displayValue = '0';
+  lastOperator = '=';
+  newValue = true;
 }
 
 // updates screen value when numbers are pressed
@@ -74,11 +80,15 @@ function numberClicked() {
   // if displayValue is 0 temporarily reset to empty string to remove leading 0
   if (displayValue === '0') {
     displayValue = '';
+  // if starting a new value after a calculation reset to empty string to remove leading 0
+  } else if (newValue === true) {
+    displayValue = '';
   } else {
     displayValue = screen.innerHTML.toString();
   }
   displayValue += this.innerHTML.toString();
   screen.innerHTML = displayValue;
+  newValue = false;
 }
 
 // called when the equal button is clicked. takes the stored lastValue and lastOperator
@@ -102,6 +112,7 @@ function equalClicked() {
   displayValue = '0';
   lastValue = 0;
   lastOperator = '=';
+  newValue = true;
 }
 
 // called when an operation button is pressed. gathers values for the first number
@@ -130,5 +141,6 @@ function operatorClicked() {
     };
     displayValue = lastValue.toString();
     screen.innerHTML = displayValue;
+    newValue = true;
   }
 }
