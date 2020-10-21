@@ -2,9 +2,9 @@
 let enteringFirstNum = true;
 
 // define vars for last value and the last operator pressed
-let displayValue = '0';
-let lastValue;
-let lastOperator;
+  let displayValue = '0';
+  let lastValue;
+  let lastOperator;
 
 // define necessary DOM elements to be javascript vars
 const screen = document.getElementById('screen');
@@ -97,6 +97,9 @@ function equalClicked() {
     case ('/'):
       screen.innerHTML = operate(divide, lastValue, currentValue);
   };
+  // reinitialize values for next calculation
+  displayValue = '0';
+  lastValue = 0;
 }
 
 // called when an operation button is pressed. gathers values for the first number
