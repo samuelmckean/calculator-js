@@ -2,9 +2,10 @@
 let enteringFirstNum = true;
 
 // define vars for last value and the last operator pressed
-  let displayValue = '0';
-  let lastValue;
-  let lastOperator;
+let displayValue = '0';
+let lastValue;
+let currentValue;
+let lastOperator = '=';
 
 // define necessary DOM elements to be javascript vars
 const screen = document.getElementById('screen');
@@ -83,7 +84,7 @@ function numberClicked() {
 // called when the equal button is clicked. takes the stored lastValue and lastOperator
 // with the current displayValue and updates the screen to display the result
 function equalClicked() {
-  let currentValue = Number(displayValue);
+  currentValue = Number(displayValue);
   switch(lastOperator) {
     case ('+'):
       screen.innerHTML = operate(add, lastValue, currentValue);
@@ -100,14 +101,34 @@ function equalClicked() {
   // reinitialize values for next calculation
   displayValue = '0';
   lastValue = 0;
+  lastOperator = '=';
 }
 
 // called when an operation button is pressed. gathers values for the first number
 // and operator to be used in calculation
 function operatorClicked() {
   // get first number, operator, and reset screen to 0 for second number
-  lastValue = Number(displayValue);
-  lastOperator = this.innerHTML;
-  displayValue = '0';
-  screen.innerHTML = displayValue;
+  if (lastOperator === '=') {
+    lastValue = Number(displayValue);
+    lastOperator = this.innerHTML;
+    displayValue = '0';
+    screen.innerHTML = displayValue;
+  } else {
+    currentValue = Number(displayValue);
+    switch(lastOperator) {
+      case ('+'):
+        lastValue = operate(add, lastValue, currentValue);
+        break;
+      case ('-'):
+        lastValue = operate(subtract, lastValue, currentValue);
+        break;
+      case ('*'):
+        lastValue = operate(multiply, lastValue, currentValue);
+        break;
+      case ('/'):
+        lastValue = operate(divide, lastValue, currentValue);
+    };
+    displayValue = lastValue.toString();
+    screen.innerHTML = displayValue;
+  }
 }
