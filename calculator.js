@@ -22,6 +22,9 @@ document.getElementById('equal').addEventListener('click', equalClicked);
 // wire up clearClicked with clear button
 document.getElementById('clear').addEventListener('click', clearClicked);
 
+// wire up deleteClicked with delete button
+document.getElementById('delete').addEventListener('click', deleteClicked);
+
 // wire up onclick for all number buttons
 document.getElementById('zero').addEventListener('click', numberClicked);
 document.getElementById('one').addEventListener('click', numberClicked);
@@ -129,6 +132,17 @@ function equalClicked() {
   lastValue = 0;
   lastOperator = '=';
   newValue = true;
+}
+
+// delete one from screen if delete button pressed
+function deleteClicked() {
+  if (newValue === true  || displayValue.length === 1) {
+    displayValue = '0';
+    screen.innerHTML = displayValue;
+  } else {
+    displayValue = displayValue.substring(0, displayValue.length - 1);
+    screen.innerHTML = displayValue;
+  }
 }
 
 // called when an operation button is pressed. gathers values for the first number
