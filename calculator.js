@@ -9,6 +9,20 @@ let lastOperator = '=';
 
 // define necessary DOM elements to be javascript vars
 const screen = document.getElementById('screen');
+const addButton = document.getElementById('add');
+const subtractButton = document.getElementById('subtract');
+const multiplyButton = document.getElementById('multiply');
+const divideButton = document.getElementById('divide');
+const zeroButton = document.getElementById('zero');
+const oneButton = document.getElementById('one');
+const twoButton = document.getElementById('two');
+const threeButton = document.getElementById('three');
+const fourButton = document.getElementById('four');
+const fiveButton = document.getElementById('five');
+const sixButton = document.getElementById('six');
+const sevenButton = document.getElementById('seven');
+const eightButton = document.getElementById('eight');
+const nineButton = document.getElementById('nine');
 
 // wire up operatorCicked with operator buttons
 document.getElementById('add').addEventListener('click', operatorClicked);
@@ -39,6 +53,62 @@ document.getElementById('nine').addEventListener('click', numberClicked);
 
 // wire up decimal point button
 document.getElementById('decimal').addEventListener('click', decimalClicked);
+
+// wire up keyboard support for numbers, decimal point, backspace, and operators
+document.addEventListener('keyup', (e) => {
+  switch (e.key) {
+    case ('Backspace'):
+      deleteClicked();
+      break;
+    case ('.'):
+      decimalClicked();
+      break;
+    case ('+'):
+      operatorClicked.call(addButton);
+      break;
+    case ('-'):
+      operatorClicked.call(subtractButton);
+      break;
+    case ('*'):
+      operatorClicked.call(multiplyButton);
+      break;
+    case ('/'):
+      operatorClicked.call(divideButton);
+      break;
+    case ('0'):
+      numberClicked.call(zeroButton);
+      break;
+    case ('1'):
+      numberClicked.call(oneButton);
+      break;
+    case ('2'):
+      numberClicked.call(twoButton);
+      break;
+    case ('3'):
+      numberClicked.call(threeButton);
+      break;
+    case ('4'):
+      numberClicked.call(fourButton);
+      break;
+    case ('5'):
+      numberClicked.call(fiveButton);
+      break;
+    case ('6'):
+      numberClicked.call(sixButton);
+      break;
+    case ('7'):
+      numberClicked.call(sevenButton);
+      break;
+    case ('8'):
+      numberClicked.call(eightButton);
+      break;
+    case ('9'):
+      numberClicked.call(nineButton);
+      break;
+    case ('='):
+        equalClicked();
+  }
+});
 
 // adds two values
 function add(a, b) {
@@ -93,7 +163,7 @@ function numberClicked() {
 function decimalClicked() {
   if (!displayValue.includes('.')) {
     displayValue = screen.innerHTML.toString();
-    displayValue += this.innerHTML.toString();
+    displayValue += '.';
   } else if (newValue === true) {
     displayValue = '0.'
   }
