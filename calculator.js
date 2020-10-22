@@ -1,6 +1,3 @@
-// initialize a flag for the first number entered in the calculator
-let enteringFirstNum = true;
-
 // initial flag for when starting a new number
 let newValue = true;
 
