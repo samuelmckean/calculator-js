@@ -25,10 +25,10 @@ const eightButton = document.getElementById('eight');
 const nineButton = document.getElementById('nine');
 
 // wire up operatorCicked with operator buttons
-document.getElementById('add').addEventListener('click', operatorClicked);
-document.getElementById('subtract').addEventListener('click', operatorClicked);
-document.getElementById('multiply').addEventListener('click', operatorClicked);
-document.getElementById('divide').addEventListener('click', operatorClicked);
+addButton.addEventListener('click', operatorClicked);
+subtractButton.addEventListener('click', operatorClicked);
+multiplyButton.addEventListener('click', operatorClicked);
+divideButton.addEventListener('click', operatorClicked);
 
 // wire up equal button with equalClicked function
 document.getElementById('equal').addEventListener('click', equalClicked);
@@ -40,16 +40,16 @@ document.getElementById('clear').addEventListener('click', clearClicked);
 document.getElementById('delete').addEventListener('click', deleteClicked);
 
 // wire up onclick for all number buttons
-document.getElementById('zero').addEventListener('click', numberClicked);
-document.getElementById('one').addEventListener('click', numberClicked);
-document.getElementById('two').addEventListener('click', numberClicked);
-document.getElementById('three').addEventListener('click', numberClicked);
-document.getElementById('four').addEventListener('click', numberClicked);
-document.getElementById('five').addEventListener('click', numberClicked);
-document.getElementById('six').addEventListener('click', numberClicked);
-document.getElementById('seven').addEventListener('click', numberClicked);
-document.getElementById('eight').addEventListener('click', numberClicked);
-document.getElementById('nine').addEventListener('click', numberClicked);
+zeroButton.addEventListener('click', numberClicked);
+oneButton.addEventListener('click', numberClicked);
+twoButton.addEventListener('click', numberClicked);
+threeButton.addEventListener('click', numberClicked);
+fourButton.addEventListener('click', numberClicked);
+fiveButton.addEventListener('click', numberClicked);
+sixButton.addEventListener('click', numberClicked);
+sevenButton.addEventListener('click', numberClicked);
+eightButton.addEventListener('click', numberClicked);
+nineButton.addEventListener('click', numberClicked);
 
 // wire up decimal point button
 document.getElementById('decimal').addEventListener('click', decimalClicked);
