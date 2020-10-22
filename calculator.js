@@ -9,11 +9,6 @@ let lastOperator = '=';
 
 // define necessary DOM elements to be javascript vars
 const screen = document.getElementById('screen');
-const equalButton = document.getElementById('equal');
-const addButton = document.getElementById('add');
-const subtractButton = document.getElementById('subtract');
-const multiplyButton = document.getElementById('multiply');
-const divideButton = document.getElementById('divide');
 
 // wire up operatorCicked with operator buttons
 document.getElementById('add').addEventListener('click', operatorClicked);
