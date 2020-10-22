@@ -106,7 +106,10 @@ document.addEventListener('keyup', (e) => {
       numberClicked.call(nineButton);
       break;
     case ('='):
-        equalClicked();
+      equalClicked();
+      break;
+    case ('Enter'):
+      equalClicked();
   }
 });
 
