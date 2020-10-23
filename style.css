@@ -1,89 +1,81 @@
-#calculator {
+#buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: 
-    "screen screen screen screen"
-    "clear clear delete add"
-    "seven eight nine subtract"
-    "four five six multiply"
-    "one two three divide"
-    ". zero decimal equal";
 }
 
 #screen {
   border-color: black;
   border-style: solid;
-  grid-area: "screen";
+  grid-row: 0;
   text-align: right;
 }
 
 #clear {
-  grid-area: "clear";
+  grid-row: 1;
 }
 
 #delete {
-  grid-area: "delete";
+  grid-row: 1;
 }
 
 #add {
-  grid-area: "add";
+  grid-row: 1;
 }
 
 #subtract {
-  grid-area: "subtract";
+  grid-row: 2;
 }
 
 #multiply {
-  grid-area: "multiply";
+  grid-area: 3;
 }
 
 #divide {
-  grid-area: "divide";
+  grid-row: 4;
 }
 
 #decimal {
-  grid-area: "decimal";
+  grid-area: 5;
 }
 
 #zero {
-  grid-area: "zero";
+  grid-area: 5;
 }
 
 #one {
-  grid-area: "one";
+  grid-row: 4;
 }
 
 #two {
-  grid-area: "two";
+  grid-row: 4;
 }
 
 #three {
-  grid-area: "three";
+  grid-row: 4;
 }
 
 #four {
-  grid-area: "four";
+  grid-row: 3;
 }
 
 #five {
-  grid-area: "five";
+  grid-row: 3;
 }
 
 #six {
-  grid-area: "six";
+  grid-row: 3;
 }
 
 #seven {
-  grid-area: "seven";
+  grid-row: 2;
 }
 
 #eight {
-  grid-area: "eight";
+  grid-row: 2;
 }
 
 #nine {
-  grid-area: "nine"
+  grid-row: 2;
 }
 
 .operator-button {
@@ -96,5 +88,5 @@
   margin-left: 1em;
   background-color: pink;
   border-color: red;
-  grid-area: "equal";
+  grid-row: 5;
 }
