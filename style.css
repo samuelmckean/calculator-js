@@ -1,6 +1,15 @@
+#calculator {
+  max-width: 500px;
+}
+
 #buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+button {
+  height: 5vh;
+  margin: 0.5em;
 }
 
 #screen {
@@ -8,6 +17,8 @@
   border-style: solid;
   grid-row: 0;
   text-align: right;
+  height: 5vh;
+  font-size: 4vh;
 }
 
 #clear {
